@@ -11,13 +11,11 @@ export default function Player() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const handleClick = () => setLoaded(true);
+    const timeout = setTimeout(() => {
+      setLoaded(true);
+    }, 2000);
 
-    document.addEventListener('click', handleClick);
-
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -27,11 +25,11 @@ export default function Player() {
           Automação inteligente para mais eficiência
         </h1>
 
-        <div className="h-[400px] w-full max-w-[860px] md:aspect-video md:h-[500px]">
+        <div className="relative h-[400px] w-full max-w-[860px] md:aspect-video md:h-[500px]">
           {!loaded && (
             <div className="absolute inset-0 flex animate-pulse items-center justify-center rounded-lg bg-gray-800 p-5">
               <p className="text-lg font-semibold text-white">
-                Clique em qualquer lugar para carregar o vídeo...
+                Carregando vídeo...
               </p>
             </div>
           )}
@@ -41,6 +39,7 @@ export default function Player() {
               src="https://www.youtube.com/embed/c5rWB_fS5ao?si=w-InpASwuXmv3GxT&rel=0"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               className="h-full w-full rounded-lg"
+              loading="lazy"
             ></iframe>
           )}
         </div>
