@@ -9,11 +9,14 @@ export default function HeroSection() {
       <SectionBox className="md:py-8">
         <h3 className="text-center text-3xl font-extrabold uppercase">Logo</h3>
         <h1 className="max-w-[60rem] text-center text-2xl font-extrabold uppercase antialiased md:text-4xl md:leading-12">
-          Impulsione o crescimento da sua empresa com inovação, automação e
-          tecnologia digital de última geração!
+          Plataforma de Automação Empresarial
         </h1>
+        <h4 className="text-white-500 max-w-[41rem] text-center text-lg">
+          A tecnologia que impulsiona seu negócio para o próximo nível.
+          Automatize processos, economize tempo e aumente sua produtividade!
+        </h4>
         <Button>
-          Quero impulsionar minhas vendas
+          COMEÇAR AGORA
           <ArrowRight />
         </Button>
       </SectionBox>
