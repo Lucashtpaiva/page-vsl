@@ -1,1 +1,15 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+  --color-pink: #ff62a1;
+
+  --color-white-500: #fff;
+  --color-white-700: #b9b9b9;
+
+  --color-black-300: #1e1e1e;
+  --color-black-500: #000;
+  --color-black-600: #070707;
+
+  --font-heading: var(--font-inter);
+  --font-sans: var(--font-inter);
+}
