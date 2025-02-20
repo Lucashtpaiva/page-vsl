@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import Footer from '@/components/sections/footer/footer';
+import UTMHandler from '@/components/UTMHandler';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+  preload: false,
 });
 
 export default function RootLayout({
@@ -45,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body className="bg-black-300 text-white-500 antialiased">
+        <UTMHandler />
         <div>
           {children}
           <Footer />

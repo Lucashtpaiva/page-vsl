@@ -1,9 +1,27 @@
+'use client';
+
+import { useEffect } from 'react';
+
 import { Button } from '@/components/button';
 import Container from '@/components/container';
 import SectionBox from '@/components/sectionBox';
 import { ArrowRight } from 'lucide-react';
 
 export default function PaginaObrigado() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedUTMs = {
+        utm_source: sessionStorage.getItem('utm_source') || 'Nenhum',
+        utm_medium: sessionStorage.getItem('utm_medium') || 'Orgânico',
+        utm_campaign: sessionStorage.getItem('utm_campaign') || 'Nenhum',
+        utm_content: sessionStorage.getItem('utm_content') || 'Nenhum',
+        utm_term: sessionStorage.getItem('utm_term') || 'Nenhum',
+      };
+
+      console.log('UTMs capturados:', storedUTMs);
+    }
+  }, []);
+
   return (
     <main>
       <Container className="min-h-[90dvh] justify-center bg-[url(/hero-mob.webp)] bg-bottom md:bg-[url(/bg-desktop.webp)]">
@@ -18,6 +36,7 @@ export default function PaginaObrigado() {
             Sua compra foi confirmada com sucesso! Agora você está pronto para
             levar seu negócio a um novo nível com nossa plataforma de automação.
           </h4>
+
           <Button href={'#'}>
             Entrar
             <ArrowRight />
