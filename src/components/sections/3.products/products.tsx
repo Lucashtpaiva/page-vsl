@@ -1,3 +1,4 @@
+import { Button } from '@/components/button';
 import CardBox from '@/components/cardBox';
 import Container from '@/components/container';
 import IconText from '@/components/iconText';
@@ -32,6 +33,7 @@ export default function Products() {
               <h1 className="text-4xl font-bold">R$199,00/mês</h1>
               <p className="text-base">ou R$999,00/ano (2meses grátis)</p>
             </div>
+            <Button href={'/pagina-de-obrigado'}>EU QUERO O PLANO BASIC</Button>
           </CardBox>
           <CardBox>
             <h1 className="text-2xl font-bold text-white">
@@ -57,6 +59,9 @@ export default function Products() {
               <h1 className="text-4xl font-bold">R$199,00/mês</h1>
               <p className="text-base">ou R$1.999,00/ano (2meses grátis)</p>
             </div>
+            <Button href={'/pagina-de-obrigado'}>
+              EU QUERO O PLANO PREMIUM
+            </Button>
           </CardBox>
         </div>
       </SectionBox>

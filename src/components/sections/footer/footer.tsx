@@ -11,7 +11,7 @@ export default function Footer() {
         <SectionBox className="py-10 md:py-20">
           <div className="flex w-full items-center justify-between">
             <h3 className="text-3xl font-extrabold uppercase">Logo</h3>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-6">
               <Link
                 href="https://www.instagram.com/lucashtpaiva"
                 target="_blank"
@@ -20,7 +20,7 @@ export default function Footer() {
                 <InstagramIcon className="h-6 w-6 text-white transition-colors hover:text-gray-400" />
               </Link>
               <Link
-                href="https://www.linkedin.com/lucashtpaiva"
+                href="https://www.linkedin.com/in/lucashtpaiva/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -40,10 +40,12 @@ export default function Footer() {
             <div className="my-0 border-t border-white"></div>
 
             <div className="flex flex-wrap items-center justify-between">
-              <p className="text-base">
+              <Link href={'#'} className="text-base underline">
                 Copyright © 2025 . Todos os direitos reservados.
-              </p>
-              <p className="text-base">Desenvolvido por Lucas Paiva</p>
+              </Link>
+              <Link href={'#'} className="text-base underline">
+                Desenvolvido por Lucas Paiva
+              </Link>
             </div>
           </div>
         </SectionBox>
