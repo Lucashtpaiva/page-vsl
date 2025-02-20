@@ -10,10 +10,10 @@ export default function Container({
   className = '',
 }: ContainerProps) {
   return (
-    <main
-      className={`flex flex-col items-center bg-cover bg-no-repeat ${className}`.trim()}
+    <div
+      className={`flex w-full flex-col items-center bg-cover bg-no-repeat ${className}`.trim()}
     >
       {children}
-    </main>
+    </div>
   );
 }

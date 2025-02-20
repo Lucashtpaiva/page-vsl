@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+
+import Footer from '@/components/sections/footer/footer';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -43,7 +45,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body className="bg-black-300 text-white-500 antialiased">
-        {children}
+        <div>
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
