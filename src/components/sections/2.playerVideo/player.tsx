@@ -65,8 +65,8 @@ export default function Player() {
           )}
         </div>
 
-        <Button>
-          Começar agora
+        <Button href={'#products'}>
+          Comece agora mesmo
           <ArrowRight />
         </Button>
       </SectionBox>

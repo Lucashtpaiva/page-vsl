@@ -15,8 +15,8 @@ export default function HeroSection() {
           A tecnologia que impulsiona seu negócio para o próximo nível.
           Automatize processos, economize tempo e aumente sua produtividade!
         </h4>
-        <Button>
-          COMEÇAR AGORA
+        <Button href={'#products'}>
+          Comece agora mesmo
           <ArrowRight />
         </Button>
       </SectionBox>
