@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
   experimental: { optimizeCss: true },
   images: {
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        pathname: '/vi/**',
+      },
+    ],
   },
   async headers() {
     return [
