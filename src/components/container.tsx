@@ -11,7 +11,7 @@ export default function Container({
 }: ContainerProps) {
   return (
     <main
-      className={`flex flex-col items-center bg-cover bg-bottom bg-no-repeat ${className}`.trim()}
+      className={`flex flex-col items-center bg-cover bg-no-repeat ${className}`.trim()}
     >
       {children}
     </main>

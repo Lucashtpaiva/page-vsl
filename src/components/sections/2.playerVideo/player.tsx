@@ -21,7 +21,7 @@ export default function Player() {
   }, []);
 
   return (
-    <Container className="justify-center bg-[url(/video-desktop.webp)]">
+    <Container className="justify-center bg-[url(/video-desktop.webp)] bg-center">
       <SectionBox className="py-20 md:py-32">
         <h1 className="max-w-[60rem] text-center text-2xl font-extrabold uppercase antialiased md:text-3xl md:leading-12">
           Inovação para seu negócio!
@@ -29,7 +29,7 @@ export default function Player() {
 
         <div className="relative aspect-video w-full max-w-[860px] md:h-[500px]">
           {!loaded && (
-            <div className="absolute inset-0 flex animate-pulse items-center justify-center rounded-lg bg-gray-800">
+            <div className="absolute inset-0 flex animate-pulse items-center justify-center rounded-lg bg-gray-800 p-5">
               <p className="text-lg font-semibold text-white">
                 Clique em qualquer lugar para carregar o vídeo...
               </p>
