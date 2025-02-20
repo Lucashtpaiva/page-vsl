@@ -5,7 +5,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Página VSL',
   description: 'Descubra como aumentar suas conversões com esta VSL!',
-  viewport: 'width=device-width, initial-scale=1',
+
   openGraph: {
     title: 'Página VSL',
     description: 'Descubra como aumentar suas conversões com esta VSL!',
@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     ],
     type: 'website',
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 const inter = Inter({
