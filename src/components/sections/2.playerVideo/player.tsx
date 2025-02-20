@@ -38,8 +38,8 @@ export default function Player() {
               <Image
                 src={thumbnailUrl}
                 alt="Clique para carregar o vídeo"
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: 'cover' }}
                 priority
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/50">
