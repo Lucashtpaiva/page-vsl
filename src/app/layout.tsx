@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const inter = Inter({
-  weight: ['400', '600', '700'],
+  weight: ['400', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-inter',
 });
