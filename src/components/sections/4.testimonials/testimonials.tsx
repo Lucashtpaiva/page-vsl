@@ -39,9 +39,9 @@ export default function Testimonials() {
         src={backgroundImage}
         alt="Imagem de fundo"
         fill
-        priority
         sizes="100vw"
         className="z-[-1] object-cover object-bottom"
+        loading="lazy"
       />
       <SectionBox className="py-20 md:py-32">
         <h1 className="text-center text-2xl leading-tight font-extrabold uppercase md:text-3xl">

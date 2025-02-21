@@ -20,9 +20,9 @@ export default function HeroSection() {
         src={backgroundImage}
         alt="Imagem de fundo"
         fill
-        priority
         sizes="100vw"
         className="z-[-1] object-cover object-bottom"
+        loading="lazy"
       />
       <SectionBox className="md:py-8">
         <h3 className="text-center text-3xl font-extrabold uppercase">Logo</h3>

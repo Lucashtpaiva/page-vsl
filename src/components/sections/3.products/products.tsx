@@ -50,9 +50,9 @@ export default function Products() {
         src={backgroundImage}
         alt="Imagem de fundo"
         fill
-        priority
         sizes="100vw"
         className="z-[-1] object-cover object-top"
+        loading="lazy"
       />
       <SectionBox className="py-20 md:py-28">
         <h1 className="max-w-[60rem] text-center text-2xl leading-tight font-extrabold uppercase md:text-3xl">

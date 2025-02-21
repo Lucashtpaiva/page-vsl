@@ -34,9 +34,9 @@ export default function Player() {
         src={backgroundImage}
         alt="Imagem de fundo"
         fill
-        priority
         sizes="100vw"
         className="z-[-1] object-cover object-center"
+        loading="lazy"
       />
       <SectionBox className="py-20 md:py-32">
         <h1 className="max-w-[34rem] text-center text-2xl leading-tight font-extrabold uppercase md:text-3xl">
@@ -54,7 +54,7 @@ export default function Player() {
                 alt="Clique para carregar o vídeo"
                 fill
                 style={{ objectFit: 'cover' }}
-                priority
+                loading="lazy"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/50">
                 <svg
