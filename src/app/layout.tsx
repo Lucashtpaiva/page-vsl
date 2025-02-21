@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Página VSL',
     description: 'Descubra como aumentar suas conversões com esta VSL!',
-    url: 'https://seusite.com',
+    url: '',
     siteName: 'Minha VSL',
     images: [
       {
