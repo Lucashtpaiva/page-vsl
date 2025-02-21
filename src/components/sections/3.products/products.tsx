@@ -8,13 +8,14 @@ import Container from '@/components/container';
 import IconText from '@/components/iconText';
 import SectionBox from '@/components/sectionBox';
 import { useResponsiveBackground } from '@/hooks/useResponsiveBackground';
-import { CircleCheckBig, Star } from 'lucide-react';
+import { CircleCheckBig } from 'lucide-react';
 
 export default function Products() {
   const backgroundImage = useResponsiveBackground(
-    '/products-desktop.webp',
-    '/products-desktop.webp',
+    '/mobile/products-mob.webp',
+    '/desktop/products-desktop.webp',
   );
+
   const plans = [
     {
       title: 'Plano Basic – Automação Essencial',
@@ -23,7 +24,7 @@ export default function Products() {
         'Relatórios inteligentes',
         'Integração com principais ferramentas',
       ],
-      price: 'R$199,00/mês',
+      price: 'R$99,00/mês',
       yearlyPrice: 'R$999,00/ano (2 meses grátis)',
       buttonText: 'EU QUERO O PLANO BASIC',
       icon: CircleCheckBig,
@@ -36,12 +37,13 @@ export default function Products() {
         'Personalização avançada',
         'IA para otimização de processos',
       ],
-      price: 'R$1.999,00/mês',
+      price: 'R$199,00/mês',
       yearlyPrice: 'ou R$1.999,00/ano (2 meses grátis)',
       buttonText: 'EU QUERO O PLANO PREMIUM',
-      icon: Star,
+      icon: CircleCheckBig,
     },
   ];
+
   return (
     <Container className="relative justify-center">
       <Image
@@ -56,7 +58,10 @@ export default function Products() {
         <h1 className="max-w-[60rem] text-center text-2xl leading-tight font-extrabold uppercase md:text-3xl">
           Escolha a Melhor Solução para Impulsionar Seu Negócio no Mundo Digital
         </h1>
-        <div className="flex flex-wrap items-stretch justify-center gap-10">
+        <div
+          className="flex flex-wrap items-stretch justify-center gap-10"
+          id="products"
+        >
           {plans.map((plan, index) => (
             <CardBox key={index}>
               <h1 className="text-2xl font-bold text-white">{plan.title}</h1>

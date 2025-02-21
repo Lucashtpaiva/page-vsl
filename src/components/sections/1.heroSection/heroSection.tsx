@@ -10,8 +10,8 @@ import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
   const backgroundImage = useResponsiveBackground(
-    '/hero-mob.webp',
-    '/bg-desktop.webp',
+    '/mobile/hero-mob.webp',
+    '/desktop/bg-desktop.webp',
   );
 
   return (

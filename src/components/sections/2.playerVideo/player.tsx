@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/button';
 import Container from '@/components/container';
 import SectionBox from '@/components/sectionBox';
+import VideoPlayer from '@/components/videoPlayer';
 import { useResponsiveBackground } from '@/hooks/useResponsiveBackground';
 import { ArrowRight } from 'lucide-react';
 
@@ -15,8 +16,8 @@ export default function Player() {
   const videoId = 'c5rWB_fS5ao';
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   const backgroundImage = useResponsiveBackground(
-    '/video-desktop.webp',
-    '/video-desktop.webp',
+    '/mobile/player-mob.webp',
+    '/desktop/video-desktop.webp',
   );
 
   useEffect(() => {
@@ -68,14 +69,7 @@ export default function Player() {
             </div>
           )}
 
-          {loaded && (
-            <iframe
-              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              className="h-full w-full rounded-lg"
-              loading="lazy"
-            ></iframe>
-          )}
+          {loaded && <VideoPlayer videoId={videoId} />}
         </div>
 
         <Button href={'#products'}>
