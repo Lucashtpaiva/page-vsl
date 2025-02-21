@@ -5,14 +5,18 @@ import Image from 'next/image';
 
 import Container from '@/components/container';
 import SectionBox from '@/components/sectionBox';
+import { useResponsiveBackground } from '@/hooks/useResponsiveBackground';
 
 const BoxTestimonials = dynamic(() => import('./boxTestimonials'), {
-  ssr: false,
+  ssr: true,
   loading: () => <p>Carregando...</p>,
 });
 
 export default function Testimonials() {
-  const backgroundImage = '/depoimentos-desktop.webp';
+  const backgroundImage = useResponsiveBackground(
+    '/mobile/depoimentos-mob.webp',
+    '/desktop/depoimentos-desktop.webp',
+  );
 
   const testimonials = [
     {
