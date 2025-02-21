@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/button';
 import Container from '@/components/container';
 import SectionBox from '@/components/sectionBox';
+import { useResponsiveBackground } from '@/hooks/useResponsiveBackground';
 import { ArrowRight } from 'lucide-react';
 
 export default function Player() {
@@ -13,6 +14,10 @@ export default function Player() {
   const [showVideo, setShowVideo] = useState(false);
   const videoId = 'c5rWB_fS5ao';
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const backgroundImage = useResponsiveBackground(
+    '/video-desktop.webp',
+    '/video-desktop.webp',
+  );
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -23,7 +28,15 @@ export default function Player() {
   }, []);
 
   return (
-    <Container className="justify-center bg-[url(/video-desktop.webp)] bg-center">
+    <Container className="relative justify-center">
+      <Image
+        src={backgroundImage}
+        alt="Imagem de fundo"
+        fill
+        priority
+        sizes="100vw"
+        className="z-[-1] object-cover object-center"
+      />
       <SectionBox className="py-20 md:py-32">
         <h1 className="max-w-[34rem] text-center text-2xl leading-tight font-extrabold uppercase md:text-3xl">
           Automação inteligente para mais eficiência

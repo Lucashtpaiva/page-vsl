@@ -4,35 +4,39 @@ import { useEffect } from 'react';
 
 export default function UTMHandler() {
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const searchParams = new URLSearchParams(window.location.search);
+    if (typeof window === 'undefined' || !window.sessionStorage) return;
 
-      const utmParams = {
-        utm_source:
-          searchParams.get('utm_source') ||
-          sessionStorage.getItem('utm_source') ||
-          'Nenhum',
-        utm_medium:
-          searchParams.get('utm_medium') ||
-          sessionStorage.getItem('utm_medium') ||
-          'Orgânico',
-        utm_campaign:
-          searchParams.get('utm_campaign') ||
-          sessionStorage.getItem('utm_campaign') ||
-          'Nenhum',
-        utm_content:
-          searchParams.get('utm_content') ||
-          sessionStorage.getItem('utm_content') ||
-          'Nenhum',
-        utm_term:
-          searchParams.get('utm_term') ||
-          sessionStorage.getItem('utm_term') ||
-          'Nenhum',
-      };
+    const searchParams = new URLSearchParams(window.location.search);
+    let hasChanges = false;
 
-      Object.entries(utmParams).forEach(([key, value]) => {
-        sessionStorage.setItem(key, value);
-      });
+    const utmKeys = [
+      'utm_source',
+      'utm_medium',
+      'utm_campaign',
+      'utm_content',
+      'utm_term',
+    ];
+    const defaultValues: Record<string, string> = {
+      utm_source: 'Nenhum',
+      utm_medium: 'Orgânico',
+      utm_campaign: 'Nenhum',
+      utm_content: 'Nenhum',
+      utm_term: 'Nenhum',
+    };
+
+    utmKeys.forEach((key) => {
+      const urlValue = searchParams.get(key);
+      const storedValue = sessionStorage.getItem(key);
+      const finalValue = urlValue || storedValue || defaultValues[key];
+
+      if (storedValue !== finalValue) {
+        sessionStorage.setItem(key, finalValue);
+        hasChanges = true;
+      }
+    });
+
+    if (hasChanges) {
+      console.log('UTMs atualizadas:', sessionStorage);
     }
   }, []);
 
