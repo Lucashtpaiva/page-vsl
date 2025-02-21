@@ -1,95 +1,121 @@
-Documentação do Projeto VSL Next
+# Documentação do Projeto VSL Next
 
-1. Introdução
+## 📌 1. Introdução
 
-Este documento fornece uma visão geral das decisões técnicas tomadas durante o desenvolvimento do projeto VSL Next, bem como estratégias de otimização implementadas e métricas de desempenho obtidas através do Lighthouse.
+Este documento apresenta as decisões técnicas tomadas no desenvolvimento do projeto **VSL Next**, além das estratégias de otimização implementadas e métricas de desempenho analisadas através do Lighthouse.
 
-2. Decisões Técnicas
+---
 
-2.1 Next.js
+## 🚀 2. Decisões Técnicas
 
-O projeto foi desenvolvido utilizando Next.js devido aos seguintes motivos:
+### 2.1. Next.js
 
-Renderização Híbrida: Uso de SSR (Server-Side Rendering) para conteúdo dinâmico e SSG (Static Site Generation) para conteúdo estático.
+O projeto foi desenvolvido utilizando **Next.js**, pelos seguintes motivos:
 
-Roteamento Automático: Implementação fácil e eficaz de rotas baseadas em arquivos.
+- **Renderização Híbrida:** Uso de **SSR** (Server-Side Rendering) para conteúdo dinâmico e **SSG** (Static Site Generation) para conteúdo estático.
+- **Roteamento Automático:** Implementação eficiente de rotas baseadas em arquivos.
+- **Otimização de Performance:** Recursos nativos como **image optimization** e **lazy loading**.
+- **SEO-friendly:** Suporte integrado a metatags dinâmicas via `next/head`.
 
-Otimização de Performance: Recursos nativos como image optimization e lazy loading.
+### 2.2. TypeScript
 
-SEO-friendly: Suporte integrado a metatags dinâmicas através de next/head.
+O uso do **TypeScript** garante maior segurança e manutenibilidade do código. Os principais benefícios incluem:
 
-2.2 TypeScript
+- **Tipagem Estática:** Redução de erros em tempo de execução.
+- **Melhor Autocompletar e IntelliSense:** Aumento na produtividade dos desenvolvedores.
+- **Refatoração Segura:** Possibilita mudanças no código com menor risco de introdução de bugs.
+- **Compatibilidade com JavaScript:** Adaptação progressiva e suporte a bibliotecas existentes.
 
-O projeto foi desenvolvido utilizando TypeScript para garantir maior segurança e manutenibilidade do código. Os principais benefícios incluem:
+### 2.3. Tailwind CSS
 
-Tipagem Estática: Redução de erros em tempo de execução.
+Para a estilização do projeto, utilizamos **Tailwind CSS**, devido aos seguintes fatores:
 
-Melhor Autocompletar e IntelliSense: Facilita a produtividade dos desenvolvedores.
+- **Classes Utilitárias:** Permitem estilização rápida e modular.
+- **Performance Aprimorada:** Geração de CSS otimizado, removendo classes não utilizadas (Purging CSS).
+- **Flexibilidade:** Facilita a adaptação a diferentes designs sem necessidade de escrever estilos personalizados.
 
-Refatoramento Seguro: Permite alterações no código com menor risco de introduzir bugs.
+### 2.4. Frameworks e Bibliotecas Utilizadas
 
-Compatibilidade Total com JavaScript: Adaptação progressiva e suporte às bibliotecas existentes.
+- **`next/image`** → Para carregamento otimizado de imagens.
+- **Eslint + Prettier** → Padronização e qualidade do código.
 
-2.3 Tailwind CSS
+---
 
-Escolhemos Tailwind CSS para a estilização do projeto devido aos seguintes fatores:
+## ⚡ 3. Estratégias de Otimização
 
-Utilização de classes utilitárias: Permite estilização rápida e modular.
+### 3.1. Performance
 
-Performance: Gera um CSS otimizado, removendo classes não utilizadas (Purging CSS).
+- **Lazy Loading de Imagens:** Utilização do `next/image` com `loading="lazy"`.
+- **Minificação e Compressão:** Uso de **Brotli** junto a **Vercel** para compressão de arquivos.
+- **Remoção de CSS Não Utilizado:** Configuração do Tailwind para eliminar classes desnecessárias em produção.
+- **Code Splitting:** Carregamento dinâmico de componentes apenas quando necessário (`import()` e `dynamic()` do Next.js).
+- **Pre-fetching de Páginas:** O Next.js carrega automaticamente páginas vinculadas via `<Link>` antes da interação do usuário, reduzindo o tempo de carregamento.
 
-Flexibilidade: Adaptação rápida a diferentes designs sem necessidade de escrever estilos personalizados.
+### 3.2. Acessibilidade
 
-2.4 Frameworks e Bibliotecas
+- **Uso correto de semântica HTML** (`<main>`, `<footer>`, etc.).
+- **Botões de acessibilidade.**
+- **Contraste adequado de cores.**
 
-next/image: Utilizado para carregamento otimizado de imagens.
+### 3.3. SEO
 
-Eslint + Prettier: Implementados para garantir padronização e qualidade do código.
+- **Meta tags dinâmicas** utilizando `next/head`.
 
-3. Estratégias de Otimização
+---
 
-3.1 Performance
+## 📊 4. Métricas do Lighthouse
 
-Lazy Loading de Imagens: Utilização do next/image com loading="lazy".
+Abaixo estão os resultados obtidos nas análises de performance realizadas com o **Lighthouse**:
 
-Minificação e Compressão: Uso Brotli junta a vercel para compressão de arquivos.
+- **Performance:** 94
+- **Acessibilidade:** 93
+- **Melhores Práticas:** 100
+- **SEO:** 100
 
-Remoção de CSS Não Utilizado: Tailwind configurado para remover classes desnecessárias em produção.
+📌 _(Print anexado no PDF.)_
 
-Code Splitting: Carregamento dinâmico de componentes apenas quando necessário (import() e dynamic() do Next.js).
+---
 
-Pre-fetching de Páginas: O Next.js carrega automaticamente páginas vinculadas via <Link> antes da interação do usuário, garantindo tempos de carregamento mais rápidos e uma experiência fluida de navegação.
+## 🔗 5. Implementação do Código UTM
 
-3.2 Acessibilidade
+Para garantir o rastreamento eficiente de campanhas de tráfego e a correta atribuição de conversões, foi implementado um sistema de captura e armazenamento de UTMs.
 
-Uso correto de semântica HTML (header, main, footer, nav, etc.).
+### **5.1 Como funciona?**
 
-Botões para acessibilidade.
+- Quando um usuário acessa o site com parâmetros UTM (`utm_source`, `utm_medium`, `utm_campaign`, etc.), esses valores são **armazenados localmente**.
+- As UTMs persistem mesmo que o usuário **navegue para outras páginas**, garantindo rastreamento contínuo.
+- Os dados são utilizados em formulários de conversão para identificar a origem de leads.
 
-Contraste adequado de cores.
+Essa estratégia permite uma análise detalhada do desempenho de campanhas pagas e aprimora a **eficácia das estratégias de marketing digital**.
 
-3.3 SEO
+---
 
-Meta tags dinâmicas com next/head.
+## 🎨 6. UI/UX
 
-4. Métricas do Lighthouse
+### **6.1 Diretrizes no Figma**
 
-Abaixo estão os resultados das análises de performance obtidas pelo Lighthouse:
+A estrutura visual do projeto foi desenvolvida no **Figma**, garantindo uma experiência fluida e alinhada às melhores práticas de conversão
 
-Performance: 95+
+---
 
-Acessibilidade: 100
+## 🤖 7. Estratégias de IA Aplicadas
 
-Melhores Práticas: 100
+A inteligência artificial foi utilizada para aprimorar **a experiência do usuário** e **a conversão** do projeto. Entre as aplicações implementadas, destacam-se:
 
-SEO: 100
+🔹 **Geração de Copy Persuasiva:** Uso de IA para otimizar textos de vendas e testar diferentes abordagens.  
+🔹 **Performance** Ajuda para implementar e buscar uma melhor performance.
 
-(Screenshots dos relatórios do Lighthouse podem ser anexadas aqui para referência)
+---
 
-5. Considerações Finais
+## 🏁 8. Considerações Finais
 
-Este projeto foi desenvolvido com foco em performance, acessibilidade e escalabilidade. O uso de Next.js aliado ao TypeScript e Tailwind CSS permitiu a construção de uma aplicação responsiva e otimizada para o usuário final. Futuras melhorias podem incluir:
+O projeto **VSL Next** foi desenvolvido com foco em **performance, acessibilidade e conversão**. A integração entre **Next.js, TypeScript e Tailwind CSS** proporcionou uma aplicação **leve, rápida e otimizada**.
 
-Refatoração no código buscando melhora no desempenho.
+Futuras melhorias podem incluir:
 
-Melhorias na usabilidade baseadas em feedbacks dos usuários.
+- 📌 **Refatoração do código** para aprimorar ainda mais o desempenho.
+- 📌 **Melhorias na usabilidade**, baseadas no feedback dos usuários.
+
+---
+
+✍ **Autor:** _[Lucas Paiva]_
